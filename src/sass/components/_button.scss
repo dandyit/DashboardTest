@@ -1,0 +1,44 @@
+
+.btn{
+
+    &,
+    &:link,
+    &:visited
+    {
+        background-color: $color-blue-op;
+
+        color: $color-primary;
+        outline: none;
+        border-radius: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 1.5rem;
+        padding: 1.8rem 3rem;
+        transition: all .2s;
+        position: relative;
+
+        cursor: pointer;
+        border: none;
+
+        &--blue{
+            background-color: $color-blue-op;
+        }
+        &--green{
+            background-color: $color-green-op;
+        }
+        &--red{
+            background-color: $color-red-op;
+        }
+        &--yellow{
+            background-color: $color-yellow-op;
+        }
+    }
+
+    &:hover{
+        background-color: $color-blue;
+    }
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}

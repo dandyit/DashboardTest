@@ -1,0 +1,11 @@
+.graphs{
+    grid-row: 2 / 3;
+    grid-column: full-start / full-end;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+}
+.graph{
+    transition: all .3s;
+}

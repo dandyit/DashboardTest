@@ -1,0 +1,10 @@
+
+  
+  .steps li:last-child {
+    border: none;
+  }
+  
+  .active {
+    border-bottom: 2px solid #ec5990 !important;
+  }
+  

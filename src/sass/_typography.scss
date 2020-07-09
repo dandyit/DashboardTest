@@ -1,0 +1,88 @@
+%heading{
+    font-weight: 400;
+    font-family: $font-display;
+}
+.heading-1{
+    @extend %heading;
+
+}
+.heading-2{
+    @extend %heading;
+    font-size: 4rem;
+    line-height: 1;
+
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-secondary-light-2;
+    }
+    
+}
+.heading-3{
+    @extend %heading;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-secondary-light-2;
+    }
+    
+}
+.heading-4{
+    @extend %heading;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-secondary-light-2;
+    }
+    
+}
+.heading-5{
+    @extend %heading;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-secondary-light-2;
+    }
+    
+}
+.heading-6{
+    @extend %heading;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-secondary-light-2;
+    }
+    
+}
+
+.para{
+
+    &--size-14{
+        font-size: 1.4rem;
+    }
+   
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-secondary-light-2;
+    }
+}

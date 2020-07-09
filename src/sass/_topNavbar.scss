@@ -1,0 +1,45 @@
+.topNavbar{
+
+    grid-column: full-start / full-end;
+	grid-row: 1/ 2;
+
+	
+    position: sticky;
+	top: 0px;
+	z-index: 200;
+    background-color: $color-primary-dark;
+	
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+
+	&__left{
+		&--text-size{
+			font-size: 1.6rem;
+			margin-left: 2rem;
+		}
+	}
+	&__right{
+		margin-top: 2rem;
+
+		&--box{
+			float: right;
+			margin-right: 2rem;
+		}
+
+		&--icon{
+			transition: all .3s;
+		}
+		&--icon:hover{
+			color: $color-blue;
+			font-weight: 700;
+		}
+	}
+
+    &--box{
+		padding: .2rem 2rem .2rem 2rem;
+		margin: 2rem 1rem 1rem 1rem;
+		background-color: $color-primary;
+		// box-shadow: 0 0 1px rgba(95, 62, 62, 0.1);
+		border-radius: 3px;
+	}
+}
