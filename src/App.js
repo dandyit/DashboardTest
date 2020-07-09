@@ -113,7 +113,7 @@ class App extends React.Component{
 					<div  className='container'>
 						<NavbarLeft />
 						<TopNavbar />
-		<DevTool />
+		{/* <DevTool /> */}
 						
 						{/* <Pages /> */}
 

@@ -45,7 +45,7 @@ export default class createEvent extends React.Component {
 	    return (
 			<div className='createEvent'>
 				<div className='box'>
-					<form onSubmit={this.handleSubmit}>
+					<form className='form' onSubmit={this.handleSubmit}>
                         <div className='form__group'>
                             <input className='form__input' type="text" name="name" onChange={this.handleChange} />
 							<label className='form__label'>Full Name</label>
