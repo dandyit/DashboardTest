@@ -17,18 +17,24 @@
     &--dark{
         color: $color-secondary-light-2;
     }
+    &--dark-2{
+        color: $color-secondary-light-3;
+    }
     
 }
 .heading-3{
     @extend %heading;
-    font-size: 1.6rem;
-    text-transform: uppercase;
+    font-size: 3rem;
+    text-transform: capitalize;
 
     &--light{
         color: $color-primary;
     }
     &--dark{
         color: $color-secondary-light-2;
+    }
+    &--dark-2{
+        color: $color-secondary-light-3;
     }
     
 }
@@ -43,6 +49,9 @@
     &--dark{
         color: $color-secondary-light-2;
     }
+    &--dark-2{
+        color: $color-secondary-light-3;
+    }
     
 }
 .heading-5{
@@ -55,6 +64,9 @@
     }
     &--dark{
         color: $color-secondary-light-2;
+    }
+    &--dark-2{
+        color: $color-secondary-light-3;
     }
     
 }
@@ -70,11 +82,29 @@
     &--dark{
         color: $color-secondary-light-2;
     }
+    &--dark-2{
+        color: $color-secondary-light-3;
+    }
     
 }
 
 .para{
 
+    &--size-11{
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        font-size: 1.1rem;
+    }
+    &--size-12{
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        font-size: 1.2rem;
+    }
+    &--size-13{
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        font-size: 1.3rem;
+    }
     &--size-14{
         font-size: 1.4rem;
     }
@@ -84,5 +114,8 @@
     }
     &--dark{
         color: $color-secondary-light-2;
+    }
+    &--dark-2{
+        color: $color-secondary-light-3;
     }
 }

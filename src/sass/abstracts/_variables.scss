@@ -1,0 +1,48 @@
+// COLOR VARIABLES
+$color-primary: #fff; // Background
+$color-primary-1: #f7fafc; // Background--1
+$color-primary-2: #f9f9fa; // Background--2
+
+$color-primary-dark: #e3e8ee; // footer background
+$color-primary-dark-1: #eee; // light paragraph
+$color-primary-dark-2: #aaa; // light-2 paragraph
+
+$color-secondary: #222325;// Heading
+$color-secondary-dark: #101d2c;
+
+$color-secondary-light-1: #999; // paragraph
+$color-secondary-light-2: #777; // paragraph
+$color-secondary-light-3: #333; // paragraph
+
+//Box-background-color i.e,. light-weighted
+
+$color-green-light: #efffed;
+$color-gray-light: #f7fafc;
+$color-red-light: #fff8f5;
+
+$color-logo: #4264fb ; // Logo color
+$color-logo-dark: rgba(#4264fb,.7) ; // Logo light color
+$color-logo-light: rgba(#4264fb,.5) ; // Logo light color
+
+$color-white: #fff;
+$color-white-op: rgba(#fff,.9);
+$color-black: #000;
+$color-black-op: rgba(#000,.9);
+$color-blue: #4285f4; // Button & Link
+$color-blue-op : rgba(#4285f4,.9);
+$color-red: #ea4335; // Error Message
+$color-red-op : rgba(#ea4335,.9);
+$color-yellow: #f9ab00; // Warning/Alert Message
+$color-yellow-op : rgba(#f9ab00,.9);
+$color-green: #34a853; // Sucess Message
+$color-green-op : rgba(#34a853,.9);
+
+// FONT VARIABLES
+$font-primary:"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+$font-secondary: 'Nunito', sans-serif;
+$font-display: 'Josefin', sans-serif;
+
+// RESPONSIVE BREACK POINTS
+$bp-largest : 75em; // 1200px
+$bp-large : 62.5em; // 1000px
+$bp-medium : 50em; // 800px
