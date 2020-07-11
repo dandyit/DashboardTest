@@ -18,6 +18,7 @@ import FormStepper from './components/FormStepper';
 import Graphs from './components/Graphs';
 import LineChart from './components/LineChart';
 import CustomImgCrop from './components/CustomImgCrop';
+import FetchData from './components/FetchData';
 
 
 import Step1 from "./components/stepForm/Step1";
@@ -60,6 +61,11 @@ const Pages = () => {
 
 
 
+const FetchDataPage = ()=>{
+	return(
+		<FetchData />
+	)
+}
 const CustomImgCropPage = ()=>{
 	return(
 		<CustomImgCrop />
@@ -125,6 +131,7 @@ class App extends React.Component{
 						<Route path='/Graphs' component= {GraphsPage} />
 						<Route path='/LineChart' component= {LineChartPage} />
 						<Route path='/CustomImgCropPage' component= {CustomImgCropPage} />
+						<Route path='/FetchData' component= {FetchDataPage} />
 					</div>
 				</div>
 			</ Router >

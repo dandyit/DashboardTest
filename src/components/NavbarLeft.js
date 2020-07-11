@@ -30,6 +30,7 @@ const NavbarLeft = ()=>{
                     <li className='nav__item'><Link to='/Graphs' className='nav__link'> Graphs </Link></li>
                     <li className='nav__item'><Link to='/LineChart' className='nav__link'> Line Chart </Link></li>
                     <li className='nav__item'><Link to='/CustomImgCropPage' className='nav__link'>Custom Image Crop </Link></li>
+                    <li className='nav__item'><Link to='/FetchData' className='nav__link'> Fetch API Data </Link></li>
                 
                 </ul>
             </div>
