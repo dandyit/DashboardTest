@@ -2,3 +2,41 @@
     grid-row: 2 / 3;
     grid-column: full-start / full-end;
 }
+
+.tabNav{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    
+    &__link,
+	&__link:before{
+        display: grid;
+
+        font-size: 1.8rem;
+        padding: 1.5rem 0;
+		color: $color-secondary-light-1; 
+		text-decoration: none;
+		text-transform: capitalize;
+	}
+	&__link:hover{
+		color: $color-blue;
+	}
+	&__link:focus,
+	&__link::after,
+	&__link:active{
+        color: $color-blue;
+	}
+}
+
+#tabNav__item{
+    list-style: none;
+}
+
+.steps li:last-child {
+    border: none;
+}
+
+.active{
+    border-bottom: 1px solid $color-logo;
+    color: $color-logo;
+}

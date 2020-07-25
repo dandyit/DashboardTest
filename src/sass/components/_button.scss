@@ -1,44 +1,65 @@
 
 .btn{
-
     &,
     &:link,
     &:visited
     {
-        background-color: $color-blue-op;
-
-        color: $color-primary;
         outline: none;
         border-radius: 2px;
         text-transform: uppercase;
         text-decoration: none;
-        font-size: 1.5rem;
-        padding: 1.8rem 3rem;
+        font-size: $font-15;
+        padding: 1.2rem 1.8rem;
         transition: all .2s;
         position: relative;
+        color: $color-white;
 
         cursor: pointer;
         border: none;
-
-        &--blue{
-            background-color: $color-blue-op;
-        }
-        &--green{
-            background-color: $color-green-op;
-        }
-        &--red{
-            background-color: $color-red-op;
-        }
-        &--yellow{
-            background-color: $color-yellow-op;
-        }
     }
 
     &:hover{
-        background-color: $color-blue;
+        background-color: $color-blue-op;
     }
     &:active,
     &:focus {
+        background-color: $color-blue;
         outline: none;
+    }
+    &--blue{
+        background-color: $color-logo;
+        color: $color-white;
+
+        &::after{
+            background-color: $color-logo;
+        }
+    }
+}
+
+
+.btn-border {
+    &:link,
+    &:visited {
+        font-size: $font-14;
+        border-radius: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-logo-op;
+        text-decoration: none;
+        border: 1px solid $color-logo-op;
+        padding: 1.2rem 1.8rem;
+        letter-spacing: 1px;
+        // font-weight: 600;
+        transition: all .2s;
+    }
+    
+    &:hover {
+        color: $color-logo;
+        border: 1px solid $color-logo;
+    }
+
+    &:active {
+        background-color: $color-logo;
+        color: $color-white;
     }
 }

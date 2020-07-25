@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bib</title>
+
+    <style>
+      body{
+        margin: 0;
+        padding: 20px 50px 0 50px;
+        font-family: sans-serif;
+        color: #fff;
+      }
+      .container{
+        display: grid;
+        grid-template-rows: min-content min-content min-content;
+        grid-template-columns: repeat(3,1fr);
+      }
+      .clearfix::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+      .box{
+        border-radius: 3px;
+        padding: 20px0;
+        background-image: linear-gradient(to right bottom,rgba(0,0,0,.001),rgba(0,0,0,.001)),url('http://worldwidemarathon.com/images/emailTemplate/bib.jpg'); 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center;
+        
+        grid-column: 1/4;
+        grid-row: 1/ span 3;
+      }
+      .color-blue{
+        color:rgba(44, 89, 143, 1);
+      }
+      .color-orange{
+        color: rgba(250, 167, 51, 1);
+      }
+      .logo{
+        display:grid;
+        /* margin-bottom: 60px; */
+
+      }
+      .logo__img{
+        width: 300px;
+        justify-self: center;
+      }
+      .bib__number__box{
+        background-color:rgba(44, 89, 143, 0.6);
+      }
+      .bib__number-1{
+        border-bottom: 7px solid rgba(255, 255, 255, 1);
+        border-top: 7px solid rgba(255, 255, 255, 1);
+        margin-bottom: 20px;
+      }
+      .bib__number{
+        margin: 2px 0;
+        border-bottom: 7px solid rgba(250, 167, 51, 1);
+        border-top: 7px solid rgba(250, 167, 51, 1);
+      }
+
+      .bib__size{
+        color: #fff;
+        font-size: 100px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .footer{
+        padding: 50px;
+      }
+      .footer__logo--box{
+        float: left;
+        text-align: center;
+        justify-content: center;
+        margin-left: 20px;
+      }
+      .footer__logo{
+        /* margin-top: 20px; */
+        width: 200px;
+        display: grid;
+        align-self: center;
+        justify-content: center;
+      }
+      .footer__logo--right{
+        float: right;
+        text-align: center;
+      }
+      .footer__text{
+        color: #fff;
+        margin-bottom: 20px;
+        margin-top: -20px;
+        font-size: 28px;
+        float: right;
+        text-align: center;
+      }
+      .category{
+        font-size: 20px;
+        letter-spacing: 1px;
+        margin: 20px;
+        /* padding:0; */
+      }
+      .para--km{
+        margin: 10px;padding:0;
+      }
+      .para--vertual{
+        margin: 0;padding:0;
+      }
+    </style>
+
+
+</head>
+
+<body class='container'>
+  <div class='box clearfix'>
+    <div class='logo clearfix'>
+      
+      <div class='footer clearfix'>
+        <div class='footer__logo--box'>
+          <img class='logo__img' src='https://worldwidemarathon.com/images/emailTemplate/wwmLogo.png'>
+        </div>
+        <div class='footer__logo--right'>
+          <p>An Initiative by</p>
+          <img class='footer__logo' src='https://worldwidemarathon.com/images/emailTemplate/bibMapsor.png'>
+        </div>
+      </div>
+    </div>
+    <div class='bib__number__box'>
+      <div class='bib__number-1'>
+        <div class='bib__number'>
+          <h1 style='color: #fff;font-weight: 700;' class='bib__size'>wwm/hero/001</h1>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class='footer clearfix'>
+        <div class='footer__logo--box'>
+          <h1 style='letter-spacing: -1px;'>
+            <span class='color-blue'>#</span>
+            <span style='color: #fff;font-weight: 700;'>WWM</span>
+            <span class='color-orange'>RUNFOR</span>
+            <span class='color-blue'>UNSUNGHEROES</span>
+          </h1>
+        </div>
+        <div class='footer__text'>
+          <span style='color: #fff;' class='category'>Category</span>
+          <p style='color: #fff;font-weight: 700;' class='para--km'>5 KM Run</p>
+          <p style='color: #fff;font-weight: 700;' class='para--vertual'>Virtual Run</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

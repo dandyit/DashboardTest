@@ -25,9 +25,9 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 18px;
+        font-size: 15px;
 font-style: normal;
-margin-left: 20px;
+/* margin-left: 20px; */
 }
 
 .flaticon-locate:before { content: "\f100"; }

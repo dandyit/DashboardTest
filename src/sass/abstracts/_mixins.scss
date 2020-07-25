@@ -20,3 +20,25 @@
         display: inline-block;
     }
 }
+
+%clamp{
+    display: block !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+@mixin clampLine-1{
+    @extend %clamp;
+    -webkit-line-clamp: 1;
+}
+@mixin clampLine-2{
+    @extend %clamp;
+    -webkit-line-clamp: 2;
+}
+@mixin clampLine-3{
+    @extend %clamp;
+    -webkit-line-clamp: 3;
+}

@@ -1,9 +1,12 @@
 import React,{ useState, useEffect} from 'react';
 import Axios from 'axios';
 
-const FetchData = ()=> {
+export default FetchData => {
     const [posts, setPosts] = useState([]);
-
+    const [btnData, btnDataSet] = useState('Get Data');
+    const btnValueChange = ()=>{
+        btnDataSet('Loading...');
+    }
   useEffect(()=> {
 	Axios.get('http://ticketviral.com/api/v1/tours')
 	.then((res) => {
@@ -45,18 +48,13 @@ const FetchData = ()=> {
 				<div className='box'>
 					<h1>Fetching API data</h1>
 					<ul>
-                        {/* {
-                            posts.map(post=>{
-                                <h1 className={post.id}>
-                                    {post.title}
-                                    </h1>
-                            })
-                        } */}
+                        
                     </ul>
+                    <button className='btn btn--blue' onClick={()=>btnValueChange()}> {btnData} </button>
 				</div>
 			</div>
 	  )
 }
 
 
-export default FetchData;
+// export default FetchData;
