@@ -1,6 +1,6 @@
 import React from "react";
 import './App.scss';
-import {BrowserRouter as Router, Route,} from "react-router-dom";
+import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
 import {StateMachineProvider} from "little-state-machine";
 // import { DevTool } from 'little-state-machine-devtools';
 import Profile from  './components/Profile';
@@ -22,6 +22,7 @@ import ForgotPassword from './components/ForgotPassword';
 import DragCropImg from './components/DragCropImg';
 import Mailer from './components/emailSender/Mailer';
 import Tickets from './components/Tickets';
+import NoMatch from './components/NoMatch';
 
 
 const TicketsPage = ()=>{
@@ -123,8 +124,10 @@ class App extends React.Component{
 						<NavbarLeft />
 						<TopNavbar />
 						{/* <DevTool /> */}
-						<Route exact path='/Profile' component = {ProfilePage} />
-						<Route exact path='/CreateEvent' component = {CreateEventPage} />
+						<Switch>
+						<Route exact path='/' component = {ProfilePage} />
+						<Route path='/Profile' component = {ProfilePage} />
+						<Route path='/CreateEvent' component = {CreateEventPage} />
 						<Route path='/ViewEvent' component = {ViewEventPage} />
 						<Route path='/FormInput' component = {FormInputPage} />
 						<Route path='/popUp' component= {PopUpPage} />
@@ -140,8 +143,11 @@ class App extends React.Component{
 						<Route path='/DragCropImg' component= {DragCropImgPage} />
 						<Route path='/Mailer' component= {MailerPage} />
 						<Route path='/Tickets' component= {TicketsPage} />
+						<Route component= {NoMatch} />
+						</Switch>
 					</div>
 				</div>
+				
 			</ Router >
 		</StateMachineProvider>
     )

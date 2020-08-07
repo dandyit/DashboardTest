@@ -1,85 +1,278 @@
-import React from 'react';
-import Axios from 'axios';
+import React, {useState} from 'react';
+import axios from 'axios';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 // import logoBlue from '../img/logo-01.svg';
 // import logoBlue2 from '../img/logo-02.svg';
 // import { render } from 'node-sass';
+// import usePasswordToggle from '../hook/usePasswordToggle';
 
-// const FormInput = ()=>{
-    export default class FormInput extends React.Component {
-        state = {
-            eventName: '',
-            eventType:'',
-            eventCategory: '',
-            country: '',
-            states: '',
-            eventStartDate: '',
-            eventEndDate: '',
+const apiUrl = 'https://ticketviral.com';
 
-            bookingStartDate: '',
-            bookingEndDate: '',
+axios.interceptors.request.use(
+    config => {
+      const { origin } = new URL(config.url);
+      const allowedOrigins = [apiUrl];
+      const token = localStorage.getItem('token');
+      if (allowedOrigins.includes(origin)) {
+        config.headers.authorization = `Bearer ${token}`;
+      }
+      return config;
+    },
+    error => {
+      return Promise.reject(error);
+    }
+  );
+  
 
-            description: '',
-            attraction: '',
-            summary: '',
-            editor: '',
-        }
-    
-        handleChange = event => {
-            const value = 
-            event.target.type === 'checkbox' ? event.target.checked
-            : event.target.value;
-            this.setState({
-                ...this.state,
-                [event.target.name]: value
-            });
-            console.log(`${event.target.name } value: ${value}`);
-        }
-      
-        handleSubmit = event => {
-          event.preventDefault();
-          const user = {
-            eventName: this.state.eventName,
-            eventType: this.state.eventType,
-            eventCategory: this.state.eventCategory,
-            country: this.state.country,
-            states: this.state.states,
+ const FormInput = ()=>{
 
-            eventStartDate: this.state.eventStartDate,
-            eventEndDate: this.state.eventEndDate,
-            bookingStartDate: this.state.bookingStartDate,
-            bookingEndDate: this.state.bookingEndDate,
-            description: this.state.description,
-            attraction: this.state.attraction,
-            summary: this.state.summary,
-            editor: this.state.editor,
-            
-          };
+  const storedJwt = localStorage.getItem('token');
+  const [jwt, setJwt] = useState(storedJwt || null);
+  console.log(jwt);
+
+
+  const [ stateToggle, setToggle ] = useState(false);
+
+  function toggle(){
+      setToggle(!stateToggle);
+  }
+
+  
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+
+const [form, setState] = useState({
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+  });
+
+  const printValues = e => {
+    e.preventDefault();
+    console.log(
+        form.name,
+        form.email,
+        form.password,
+        form.passwordConfirm,);
     
-        //   const crossBrowser = `https://cors-anywhere.herokuapp.com/`;
+  };
+
+  const updateField = e => {
+    setState({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+// const handleSubmit = (evt) => {
+//     evt.preventDefault();
+//     // alert(`Submitting Name ${name}`);
+//     // alert(`Submitting Name ${email}`);
+//     // alert(`Submitting Name ${password}`);
+//     const user = {
+
+//       email: setEmail.email,
+//       password: setPassword.password,
+//     }
+// }
+
+
+  const signup = async () => { 
+//   const signup = async (name,email,password,passwordConfirm) => { 
+//   const signup = async () => { 
+    //   const username = name;
+    //   const useremail = email;
+    //   const userpassword = password;
+    //   const userpasswordConfirm = passwordConfirm;
+
+    //   let apiData = {name: username,email: useremail, password: userpassword,passwordConfirm: userpasswordConfirm};
+    //   let apiData = {name: "Rahul tiwari",email: "rahultiwari01071996rt@gmail.com", password: "pass1234",passwordConfirm: "pass1234"};
+    // let apiData = {name: "Omveer J",email: "kirankawarnaruka@gmail.com", password: "pass1234",passwordConfirm: "pass1234"};
+    // let apiData = {name: "Arnab",email: "arnab.banerjee@mapsor.com", password: "pass1234",passwordConfirm: "pass1234"};
+
+    let apiData = { name: form.name, email: form.email, password: form.password, passwordConfirm: form.passwordConfirm};
+
+    const { data } = await axios.post(`${apiUrl}/api/v1/users/signup`, apiData);
+    console.log(data);
+
+    // localStorage.setItem('token', data.token);
+    // setJwt(data.token);
+
+    // if(data.status ===200 && data.status ===201){
+    //     console.log(`status Data : ${data}`);
+        // window.location.reload();
+    //     return data;
+    // }else{
+    //     console.log(`Error Somthing happend worng!`);
+    // }
+
+  };
+  const login = async () => { 
+
+    let apiData = {email: form.email, password: form.password};
+
+
+    // let apiData = {email: "rahultiwari01071996rt@gmail.com", password: "pass1234"};
+
+    // let apiData = {email: "arnab.banerjee@mapsor.com", password: "pass1234"};
+    // let apiData = {email: "rahul.tiwari@mapsor.com", password: "pass1234"};
+    // let apiData = {email: user.email, password: user.password};
+
+    const { data } = await axios.post(`${apiUrl}/api/v1/users/login`, apiData);
+    console.log(data);
+    localStorage.setItem('token', data.token);
+    setJwt(data.token);
+  };
+
+const me = async () => {
+    try {
+      const { data } = await axios.get(`${apiUrl}/api/v1/users/me`);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
     
-        //   const url = `http://192.168.1.22:3000/api/v1/users/login`;
-    
-        //   const url = `http://192.168.1.22:3000/api/v1/users/signup`;
-          const url = `http://192.168.1.22:3000/api/v1/events`;
-    
-          // axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
-        //   axios.post(`${crossBrowser}${url}`, { user }
-          Axios.post(`${url}`,user)
-            .then(res => {
-              console.log(res);
-              console.log(res.data);
-              console.log(res.data.user);
-              console.log(res.user);
-            })
-        }
-    render(){
     return(
         <div className='formInput'>
             <div className='box'>
+
+
+
+
+     <form className='form' onSubmit={printValues}>
+
+     <div className='form__icon'>
+                            <i  className='form__icon--box' data-spec="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2v3h1V3h5v10H6v1h5v-1H9V3h5v2h1V2H2z"></path>
+                                    <g fill-rule="evenodd" clip-rule="evenodd"><path d="M15 9h7v1h-7zM15 13h7v1h-7zM6 17h16v1H6zM6 21h16v1H6z">
+                                    </path>
+                                    </g>
+                                </svg>
+                                {/* Person Icon */}
+                                {/* <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.2 19.1c1-2.8 3.7-4.7 6.7-4.7s5.7 1.9 6.7 4.7c-4.1 2.5-9.3 2.5-13.4 0zm16.1-1.9c-.5.5-1.1 1-1.7 1.5a8.15 8.15 0 0 0-7.6-5.2c-3.3 0-6.3 2.1-7.6 5.1-.6-.4-1.1-.9-1.6-1.4l-.8.7C4.8 20.6 8.4 22 12 22s7.2-1.4 10-4.1l-.7-.7zM12 2C9.2 2 7 4.2 7 7s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 9c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"></path></svg> */}
+                            </i>
+                            <h3 className='heading-3 heading-3--dark-2'> Sign Up</h3>
+                            {/* <p className='para para--size-11'>
+                                Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.
+                            </p> */}
+                            <div className='form__group'>
+                                <input className='form__input' type='text' id='fullname'
+                                    value={form.name}
+                                    name="name"
+                                    onChange={updateField}
+                                />
+                                <label for='fullname' className='form__label'>Full Name</label>
+                            </div>
+                            <div className='form__group'>
+                                <input className='form__input' type='text' id='email'
+                                
+                                        value={form.email}
+                                        name="email"
+                                        onChange={updateField}
+                                />
+                                <label for='email' className='form__label'>Email</label>
+                            </div>
+                            <div className='form__group'>
+                                <input className='form__input' id='password'
+                                    type={stateToggle ? 'text': 'password'}
+                                    value={form.password}
+                                    name="password"
+                                    onChange={updateField}
+                                />
+                                <label for='password' className='form__label'>Password</label>
+                                <span className='form__toggle para--size-11 text-upper para--dark-2' onClick={toggle}>
+                                    {stateToggle ? 'Hide' : 'Show'}
+                                </span>
+                            </div>
+                            <div className='form__group'>
+                                <input className='form__input' id='passwordConfirm'
+                                    type={stateToggle ? 'text': 'password'}
+                                    value={form.passwordConfirm}
+                                    name="passwordConfirm"
+                                    onChange={updateField}
+                                />
+                                <label for='passwordConfirm' className='form__label'>Password Confirm</label>
+                                <span className='form__toggle para--size-11 text-upper para--dark-2' onClick={toggle}>
+                                    {stateToggle ? 'Hide' : 'Show'}
+                                </span>
+                            </div>
+                    </div>
+
+                <div className='form__grooup u-margin-bottom-small'>
+                    
+                    <button className='btn btn--blue' onClick={ ()=>signup() }>Sign Up</button>
+                </div> 
+
+    </form>
+
+
+
+
+     <form className='form u-margin-top-medium' onSubmit={printValues}>
+
+     <div className='form__icon'>
+                            <i  className='form__icon--box' data-spec="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2v3h1V3h5v10H6v1h5v-1H9V3h5v2h1V2H2z"></path>
+                                    <g fill-rule="evenodd" clip-rule="evenodd"><path d="M15 9h7v1h-7zM15 13h7v1h-7zM6 17h16v1H6zM6 21h16v1H6z">
+                                    </path>
+                                    </g>
+                                </svg>
+                                {/* Person Icon */}
+                                {/* <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.2 19.1c1-2.8 3.7-4.7 6.7-4.7s5.7 1.9 6.7 4.7c-4.1 2.5-9.3 2.5-13.4 0zm16.1-1.9c-.5.5-1.1 1-1.7 1.5a8.15 8.15 0 0 0-7.6-5.2c-3.3 0-6.3 2.1-7.6 5.1-.6-.4-1.1-.9-1.6-1.4l-.8.7C4.8 20.6 8.4 22 12 22s7.2-1.4 10-4.1l-.7-.7zM12 2C9.2 2 7 4.2 7 7s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 9c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"></path></svg> */}
+                            </i>
+                            <h3 className='heading-3 heading-3--dark-2'> Log In</h3>
+                            {/* <p className='para para--size-11'>
+                                Login
+                            </p> */}
+                            <div className='form__group'>
+                                <input className='form__input' type='text' id='email'
+                                
+                                        value={form.email}
+                                        name="email"
+                                        onChange={updateField}
+                                />
+                                <label for='email' className='form__label'>Email</label>
+                            </div>
+                            <div className='form__group'>
+                                <input className='form__input' id='password'
+                                    type={stateToggle ? 'text': 'password'}
+                                    value={form.password}
+                                    name="password"
+                                    onChange={updateField}
+                                />
+                                <label for='password' className='form__label'>Password</label>
+
+                                <span className='form__toggle para--size-11 text-upper para--dark-2' onClick={toggle}>
+                                    {stateToggle ? 'Hide' : 'Show'}
+                                </span>
+                            </div>
+
+                            <div className='form__group u-margin-bottom-small'>
+                            
+                                <button className='btn btn--blue' onClick={ ()=>login() }>Log In</button>
+                            </div>
+
+                    </div>
+    </form>
+
+
+
+                <div className='u-margin-top-medium u-margin-bottom-medium'>
+
+                    <button className='btn btn--blue' onClick={ ()=>me() }>Data Me</button><br></br><br></br>
+                </div>
+
                 <div className='formInput__inner--box'>
-                    <form className='form' onSubmit={this.handleSubmit}>
+                    <form className='form'>
+
                         <div className='form__icon'>
                             <i  className='form__icon--box' data-spec="icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24">
@@ -97,16 +290,17 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                             </p>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='eventName' id='eventName'
-                                    value={this.eventName}
-                                    onChange={this.handleChange}
+                                    // value={this.eventName}
+                                    // onChange={this.handleChange}
                                 />
                                 <label for='eventName' className='form__label'>Event Name*</label>
                             </div>
                             <div className='form__group'>
                                 <div className='form__box-2'>
                                     <select name='eventType' class="form__select form__select__size-2"
-                                        value={this.eventType}
-                                        onChange={this.handleChange}>
+                                        // value={this.eventType}
+                                        // onChange={this.handleChange}
+                                        >
                                         <option>Event Type</option>
                                         <option value='eventType1'>eventType 1</option>
                                         <option value='eventType2'>eventType 2</option>
@@ -114,20 +308,21 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                                         <option value='eventType4'>eventType 4</option>
                                     </select>
                                     <select name='eventCategory' class="form__select form__select__size-2"
-                                        value={this.eventCategory}
-                                        onChange={this.handleChange}>
+                                        // value={this.eventCategory}
+                                        // onChange={this.handleChange}
+                                        >
                                         <option>Category</option>
-                                        <option value='eventCategory1'>eventCategory 1</option>
-                                        <option value='eventCategory2'>eventCategory 2</option>
-                                        <option value='eventCategory3'>eventCategory 3</option>
-                                        <option value='eventCategory4'>eventCategory4</option>
+                                        {/* <option value='eventCategory1'>eventCategory 1</option> */}
+                                        {/* <option value='eventCategory2'>eventCategory 2</option> */}
+                                        {/* <option value='eventCategory3'>eventCategory 3</option> */}
+                                        {/* <option value='eventCategory4'>eventCategory4</option> */}
                                     </select>
                                 </div>
                             </div>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='tags' id='tags'
-                                    value={this.tags}
-                                    onChange={this.handleChange}
+                                    // value={this.tags}
+                                    // onChange={this.handleChange}
                                         />
                                 <label for='tags' className='form__label'>Tags</label>
                             </div>
@@ -143,16 +338,16 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                             </p>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='country' id='country'
-                                    value={this.country}
-                                    onChange={this.handleChange}
+                                    // value={this.country}
+                                    // onChange={this.handleChange}
                                 
                                 />
                                 <label for='country' className='form__label'>Country</label>
                             </div>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='states' id='states'
-                                    value={this.states}
-                                    onChange={this.handleChange}
+                                    // value={this.states}
+                                    // onChange={this.handleChange}
                                 />
                                 <label for='states' className='form__label'>State</label>
                             </div>
@@ -188,15 +383,15 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                             </p>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='eventStartDate' id='eventStartDate'
-                                    value={this.eventStartDate}
-                                    onChange={this.handleChange}
+                                    // value={this.eventStartDate}
+                                    // onChange={this.handleChange}
                                 />
                                 <label for='eventStartDate' className='form__label'>Event Start Date</label>
                             </div>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='eventEndDate' id='eventEndDate'
-                                    value={this.eventEndDate}
-                                    onChange={this.handleChange}
+                                    // value={this.eventEndDate}
+                                    // onChange={this.handleChange}
                                 />
                                 <label for='eventEndDate' className='form__label'>Event End Date</label>
                             </div>
@@ -214,15 +409,15 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                             </p>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='bookingStartDate' id='bookingStartDate'
-                                    value={this.bookingStartDate}
-                                    onChange={this.handleChange}
+                                    // value={this.bookingStartDate}
+                                    // onChange={this.handleChange}
                                 />
                                 <label for='bookingStartDate' className='form__label'>Booking Start Date</label>
                             </div>
                             <div className='form__group'>
                                 <input className='form__input' type='text' name='bookingEndDate' id='bookingEndDate'
-                                    value={this.bookingEndDate}
-                                    onChange={this.handleChange}
+                                    // value={this.bookingEndDate}
+                                    // onChange={this.handleChange}
                                 />
                                 <label for='bookingEndDate' className='form__label'>Booking End Date</label>
                             </div>
@@ -269,8 +464,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                             </p>
                             <div className='form__group'>
                             <textarea rows='3' className='form__input' type='text' name='description' id='description'
-                                value= {this.description}
-                                onChange= {this.handleChange}
+                                // value= {this.description}
+                                // onChange= {this.handleChange}
                             ></textarea>
                             <label for='description' className='form__label'>Write description here</label>
                             </div>
@@ -294,8 +489,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                              </p>
                             <div className='form__group'>
                             <textarea rows='3' className='form__input' type='text' name='attraction' id='attraction'
-                                value= {this.attraction}
-                                onChange= {this.handleChange}
+                                // value= {this.attraction}
+                                // onChange= {this.handleChange}
                             ></textarea>
                             <label for='attraction' className='form__label'>Write attraction here</label>
                             </div>
@@ -319,8 +514,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                             </p>
                             <div className='form__group'>
                             <textarea rows='3' className='form__input' type='text' name='summary' id='summary'
-                                value= {this.summary}
-                                onChange= {this.handleChange}
+                                // value= {this.summary}
+                                // onChange= {this.handleChange}
                             ></textarea>
                             <label for='summary' className='form__label'>Write summary here</label>
                             </div>
@@ -344,9 +539,9 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                                 Enter All the Terms & Conditions related to your Event. These Terms & Conditions are visible to Customers on Your Event Page. Write N/A if You wish to update this later
                             </p>
                             <div className='form__group'>
-                                <CKEditor name='editor'
-                                    value={this.editor}
-                                    onChange={this.handleSubmit}
+                                {/* <CKEditor name='editor'
+                                    // value={this.editor}
+                                    // onChange={this.handleSubmit}
                                     editor={ ClassicEditor }
                                     data="
                                     <p>
@@ -360,7 +555,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                                     </h3>
                                     "
                                     onInit={ editor => {
-                                        // You can store the "editor" and use when it is needed.
                                         console.log( 'Editor is ready to use!', editor );
                                     } }
                                     onChange={ ( event, editor ) => {
@@ -373,14 +567,14 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                                     onFocus={ ( event, editor ) => {
                                         console.log( 'Focus.', editor );
                                     } }
-                                />
+                                /> */}
                             </div>
                         </div>
 
                         <div className='bottom__line'></div>
 
                         <div className='form__group'>
-                            {/* <input className='form__input' type='submit' value='Submit' /> */}
+                            <input className='form__input' type='submit' value='Submit' />
 
 						<button className='btn btn--blue' type="submit">Add</button>
                         </div>
@@ -390,6 +584,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
             </div>
         </div>
     )
-}}
+// }
+}
 
-// export default FormInput;
+export default FormInput;

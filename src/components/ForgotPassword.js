@@ -31,7 +31,7 @@ const ForgotPassword = ()=>{
                     </p>
 
                     <form className='form' onSubmit={handleSubmit(onSubmit)}>
-                        <div className='form__group'>
+                        <div className='form__group u-margin-bottom-small'>
                             <input className='form__input' type='email' name='email' 
                             ref={register({ required: "Enter your email" })}
                             id='email'/>
@@ -40,10 +40,10 @@ const ForgotPassword = ()=>{
                     </label>
                             <label for='email' className='form__label'>Email address*</label>
                         </div>
-                        <input className='form__input btn btn-blue u-margin-top-small u-margin-bottom-small' type='submit' value='Reset' />
+                        <input className='form__input btn btn-blue u-margin-bottom-small u-margin-bottom-small' type='submit' value='Reset' />
                         
-                        <Link to='/SignUp'>
-                            Sign Up
+                        <Link to='/LogIn'>
+                            Log In
                         </Link>	
                     </form>
                 </div>

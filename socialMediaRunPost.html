@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Social Media Post</title>
+
+    <style>
+      body{
+        margin: 10px auto;
+        /* height: auto;
+        width: auto; */
+        font-family: sans-serif;
+        color: #fff;
+      }
+      .container{
+        display: grid;
+        width: 800px;
+        grid-template-rows: min-content min-content min-content;
+        grid-template-columns: repeat(4,1fr);
+
+      }
+      .clearfix::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+      .box{
+        border-radius: 3px;
+        padding: 0;
+        background-image: linear-gradient(to right bottom,rgba(0,0,0,.001),rgba(0,0,0,.001)),url('http://worldwidemarathon.com/images/emailTemplate/socialRunPost.png'); 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        
+        grid-column: 1/4;
+        grid-row: 1/ span 3;
+      }
+      .color-white{
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .color-blue{
+        color:rgba(44, 89, 143, 1);
+      }
+      .color-orange{
+        color: rgba(250, 167, 51, 1);
+      }
+      .logo{
+        display:grid;
+        margin-bottom: 70px;
+
+      }
+      .text-up{
+          text-transform: uppercase;
+      }
+      .logo__img{
+        width: 150px;
+        /* justify-self: center; */
+      }
+      .para--12{
+          font-size: 10px;
+          letter-spacing: 1px;
+      }
+      .footer{
+          text-align: center;
+          line-height: .4;
+        padding: 10px;
+        margin-bottom: 30px;
+      }
+      .footer__logo--right{
+        float: right;
+        text-align: center;
+      }
+      .footer__logo--box{
+        float: left;
+        text-align: center;
+        justify-content: center;
+        /* margin-left: 20px; */
+      }
+      .footer__logo{
+        /* margin-top: 20px; */
+        width: 100px;
+        display: grid;
+        align-self: center;
+        justify-content: center;
+      }
+      
+      .social{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+
+          margin-bottom: 40px;
+      }
+      .social__img{
+          display: grid;
+          justify-self: center;
+      }
+      .img__client{
+          border-radius: 100px;
+          width: 170px;
+      }
+      .social__text{
+          line-height: .6;
+      }
+    </style>
+
+
+</head>
+
+<body class='container'>
+  <div class='box clearfix'>
+    <div class='logo clearfix'>
+      
+      <div class='footer clearfix'>
+        <div class='footer__logo--box'>
+          <img class='logo__img' src='https://worldwidemarathon.com/images/emailTemplate/wwmLogo.png'>
+        </div>
+        <div class='footer__logo--right'>
+          <p class='para--12'>An Initiative by</p>
+          <img class='footer__logo' src='https://worldwidemarathon.com/images/emailTemplate/bibMapsor.png'>
+        </div>
+    </div>
+</div>
+    <div class='social'>
+        <div class='social__img'>
+            <img class='img__client' src='http://dandy.co.in/img/vishnu_backend.jpg'>
+        </div>
+        <div class='social__text'>
+            <h1 class='color-orange'>I'M</h1>
+            <h1 class='color-orange'>RUNNING!</h1>
+            <h1 class='color-orange'>ARE YOU?</h1>
+            <p>Vishnu Sharma</p>
+            <p>5<sup>th</sup> - 6<sup>th</sup> SEPTEMBER 2020</p>
+        </div>
+    </div>
+    <div>
+      <div class='footer clearfix'>
+          <h2 class='text-up' style='letter-spacing: -1px;'>
+            <span class='color-white'>#</span>
+            <span class='color-orange'>run</span>
+            <span class='color-white'>for</span>
+            <span class='color-blue'>UNSUNGHEROES</span>
+          </h2>
+          <h2 class='color-white'>www.worldwidemarathon.com</h2>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

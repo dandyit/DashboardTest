@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-    BrowserRouter as Router, Route, Link, useLocation 
+    BrowserRouter as Router, Route, Link, useLocation,Switch
   } from "react-router-dom";
 
 import {
@@ -65,5 +65,37 @@ const CustomImgCrop = ()=>{
   )
 }
 
+// const Steps=({match})=>{
+//   console.log(match);
+//   return(
+//     <div>
+//       <ul>
+//         <li>
+//           <Link to ={`${match.url}/1`}>page stape 1 render </Link>
+//           <Link to ={`${match.url}/2`}>page stape 2 render </Link>
+//           <Link to ={`${match.url}/3`}>page stape 3 render </Link>
+//         </li>
+//       </ul>
+//        <Switch>
+//          <Route path={`${match.path}/:id`} component={Step} />
+//          <Route exact path={match.path}
+//           render={()=>
+//             <h2>Please select user </h2>
+//           }
+//         />
+//        </Switch>
+//     </div>
+//   )
+// }
+
+// function Step({match}){
+//   return(
+//     <div>
+//       <p>User ID: {match.params.id} </p>
+
+//     </div>
+//   )
+
+// }
 
 export default CustomImgCrop;
