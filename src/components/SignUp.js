@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
@@ -14,6 +14,14 @@ const SignUp = ()=>{
     const onSubmit = data => {
         action(data); 
     };
+
+
+  const [ stateToggle, setToggle ] = useState(false);
+
+  function toggle(){
+      setToggle(!stateToggle);
+  }
+    
     return(
         <div className='login' id='login'>
             <div className='login__content'>
@@ -28,8 +36,8 @@ const SignUp = ()=>{
                     {/* <form action='#' className='form'> */}
                     <form className='form' onSubmit={handleSubmit(onSubmit)}>
                         
-                        <div className='form__group'>
-                            <input className='form__input u-margin-bottom-small' type='email' 
+                        <div className='form__group u-margin-bottom-small'>
+                            <input className='form__input' type='email' 
                             ref={register({ required: "Enter your email" })}
                             name='email' id='email'/>
                     <label className='form__label--error'>
@@ -37,12 +45,12 @@ const SignUp = ()=>{
                     </label>
                             <label for='email' className='form__label'>Email address*</label>
                         </div>
-                        {/* <div className='form__group'>
-                            <input className='form__input u-margin-bottom-small' type='email' name='confirrmemail' id='confirmemail'/>
+                        {/* <div className='form__group u-margin-bottom-small'>
+                            <input className='form__input' type='email' name='confirrmemail' id='confirmemail'/>
                             <label for='confirmemail' className='form__label'>Confirm email*</label>
                         </div> */}
-                        <div className='form__group'>
-                            <input className='form__input u-margin-bottom-small' type='text' name='firstname' 
+                        <div className='form__group u-margin-bottom-small'>
+                            <input className='form__input' type='text' name='firstname' 
                             ref={register({ required: "Enter your First Name" })}
                             id='firstname'/>
                             <label className='form__label--error'>
@@ -50,8 +58,8 @@ const SignUp = ()=>{
                             </label>
                             <label for='firstname' className='form__label'>First Name*</label>
                         </div>
-                        <div className='form__group'>
-                            <input className='form__input u-margin-bottom-small' type='text' name='surname' 
+                        <div className='form__group u-margin-bottom-small'>
+                            <input className='form__input' type='text' name='surname' 
                             ref={register({ required: "Enter your surname" })}
                             id='surname'/>
                             <label className='form__label--error'>
@@ -60,34 +68,35 @@ const SignUp = ()=>{
                             <label for='surname' className='form__label'>Surname</label>
                         </div>
                         <div className='form__group'>
-                            <input className='form__input u-margin-bottom-small' type='text' name='password' 
+                            <input className='form__input' name='password' 
+                                    type={stateToggle ? 'text': 'password'}
                             ref={register({ required: "Enter your password" })}
                             id='password'/>
                             <label className='form__label--error'>
                             <ErrorMessage errors={errors} name="password" as="p" />
                             </label>
                             <label for='password' className='form__label'>Password*</label>
+                            <span className='form__toggle para--size-11 text-upper para--dark-2' onClick={toggle}>
+                                {stateToggle ? 'Hide' : 'Show'}
+                            </span>
                         </div>
 
-                        {/* <div className='form__group'>
+                        {/* <div className='form__group u-margin-bottom-small'>
                             <input className='form__input' type='text' name='confirpassword' id='confirpassword'/>
                             <label for='confirmpassword' className='form__label'>Confirm password</label>
                         </div> */}
                         <p className='para--size-11 para--dark-2 u-margin-bottom-small'>Your password must be at least 8 characters*</p>
-                        <input className='form__input btn btn-blue u-margin-bottom-small' type='submit' value='Sign Up' />
+                        <input className='form__input btn btn-blue' type='submit' value='Sign Up' />
                         {/* <button className='btn btn-blue u-margin-bottom-small'>Sign Up</button>
-                        <a href='' className='btn btn-blue u-margin-bottom-small'>Sign Up</a> */}
-                        
-                        
-                        <Link to='/LogIn'>
-                            Log In Instead
-                        </Link>	
-                        
-                        <p className='para--size-11 u-margin-bottom-small'>
-                            By continuing, I agree to Ticket viral's <a href=''>Terms Of Service</a>, <a href=''>Privacy Policy</a> and 
-                            <a href=''> Community Guidelines.</a>
-                        </p>
+                        <a href='#!' className='btn btn-blue u-margin-bottom-small'>Sign Up</a> */}
                     </form>
+                            <Link to='/LogIn' className='para--size-12 text-upper'>
+                                Log In
+                            </Link>	
+                            <p className='para--size-11'>
+                                By continuing, I agree to Ticket viral's <a href='#!'>Terms Of Service</a>, <a href='#!'>Privacy Policy</a> and 
+                                <a href='#!'> Community Guidelines.</a>
+                            </p>
                 </div>
             </div>
         </div>

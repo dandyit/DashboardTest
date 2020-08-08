@@ -12,7 +12,7 @@ const FormStepper = ()=>{
             <div className='box'>
                 <form className='form' onSubmit={handleSubmit(onSubmit)} >
                     <h1>Form Stepper</h1>
-                        <div className='form__group'>
+                        <div className='form__group u-margin-bottom-small'>
                             <input className='form__input'
                                 type='text' name='fullName' ref={register({
                                     required: true,
@@ -24,7 +24,7 @@ const FormStepper = ()=>{
                             </label>
                         </div>
                 
-                        <div className='form__group'>
+                        <div className='form__group u-margin-bottom-small'>
                             <input className='form__input' name="nick" ref={register({ required: true })} />
                             <label className='form__label'>Nick Name</label>
                             <label className='form__label--error'>
@@ -32,18 +32,18 @@ const FormStepper = ()=>{
                             </label>
                         </div>
                 
-                        <div className='form__group'>
+                        <div className='form__group u-margin-bottom-small'>
                             <input className='form__input' name="age" ref={register({ pattern: /\d+/ })} />
                             <label className='form__label'>Age</label>
                             <label className='form__label--error'>
                             {errors.age && 'Please enter number for age.'}
                             </label>
                         </div>
-                        <div className='form__group'>
+                        <div className='form__group u-margin-bottom-small'>
                             <input className='form__input' name="message" ref={register} />
                             <label className='form__label'>Message</label>
                         </div>
-                        <div className='form__group'>
+                        <div className='form__group u-margin-bottom-small'>
                             <input className='form__input' type="submit" />
                         </div>
                 </form>

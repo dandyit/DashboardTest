@@ -32,6 +32,14 @@
         grid-row: 1/span 5;
         transform: translateY(-1rem);
     }
+
+    &__toggle{
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 2.4rem;
+        cursor: pointer;
+    }
     
     // &__group:not(:last-child){
     //     margin-bottom: 2rem;
