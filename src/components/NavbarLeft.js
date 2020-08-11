@@ -29,8 +29,10 @@ const NavbarLeft = ()=>{
                     <li className='nav__item'><Link to='/popUp' className='nav__link'> Pop Up </Link></li>
                     <li className='nav__item'><Link to='/FormStepper' className='nav__link'> Form Stepper </Link></li>
                     <li className='nav__item'><Link to='/Graphs' className='nav__link'> Graphs </Link></li>
-                    <li className='nav__item'><Link to='/Sells' className='nav__link'> Sells </Link></li>
-                    <li className='nav__item'><Link to='/Revenue' className='nav__link'> Revenues </Link></li>
+                    {/* <li className='nav__item'><Link to='/Sells' className='nav__link'> Sells </Link></li> */}
+                    <li className='nav__item'><Link to='/SelectEventSells' className='nav__link'> Sells </Link></li>
+                    {/* <li className='nav__item'><Link to='/Revenue' className='nav__link'> Revenues </Link></li> */}
+                    <li className='nav__item'><Link to='/SelectEventRevenue' className='nav__link'> Revenues </Link></li>
                     <li className='nav__item'><Link to='/CustomImgCropPage' className='nav__link'>Custom Image Crop </Link></li>
                     <li className='nav__item'><Link to='/FetchData' className='nav__link'> Fetch API Data </Link></li>
                     {/* <li className='nav__item'><Link to='/Login' className='nav__link'> Login </Link></li> */}

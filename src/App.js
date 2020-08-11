@@ -14,6 +14,8 @@ import FormStepper from './components/FormStepper';
 import Graphs from './components/Graphs';
 import Sells from './components/Sells';
 import Revenue from './components/Revenue';
+import SelectEventRevenue from './components/SelectEventRevenue';
+import SelectEventSells from './components/SelectEventSells';
 import CustomImgCrop from './components/CustomImgCrop';
 import FetchData from './components/FetchData';
 import Login from './components/Login';
@@ -63,6 +65,16 @@ const FetchDataPage = ()=>{
 const CustomImgCropPage = ()=>{
 	return(
 		<CustomImgCrop />
+	)
+}
+const SelectEventSellsPage = ()=>{
+	return(
+		<SelectEventSells />
+	)
+}
+const SelectEventRevenuePage = ()=>{
+	return(
+		<SelectEventRevenue />
 	)
 }
 const RevenuePage = ()=>{
@@ -135,6 +147,8 @@ class App extends React.Component{
 						<Route path='/Graphs' component= {GraphsPage} />
 						<Route path='/Sells' component= {SellsPage} />
 						<Route path='/Revenue' component= {RevenuePage} />
+						<Route path='/SelectEventRevenue' component= {SelectEventRevenuePage} />
+						<Route path='/SelectEventSells' component= {SelectEventSellsPage} />
 						<Route path='/CustomImgCropPage' component= {CustomImgCropPage} />
 						<Route path='/FetchData' component= {FetchDataPage} />
 						<Route path='/Login' component= {LoginPage} />
