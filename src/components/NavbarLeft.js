@@ -27,7 +27,7 @@ const NavbarLeft = ()=>{
                     <li className='nav__item'><Link to='/ViewEvent' className='nav__link'> View Event </Link></li>
                     <li className='nav__item'><Link to='/FormInput' className='nav__link'> Form Input </Link></li>
                     <li className='nav__item'><Link to='/popUp' className='nav__link'> Pop Up </Link></li>
-                    <li className='nav__item'><Link to='/FormStepper' className='nav__link'> Form Stepper </Link></li>
+                    <li className='nav__item'><Link to='/CreateTickets' className='nav__link'>Create Tickets </Link></li>
                     <li className='nav__item'><Link to='/Graphs' className='nav__link'> Graphs </Link></li>
                     {/* <li className='nav__item'><Link to='/Sells' className='nav__link'> Sells </Link></li> */}
                     <li className='nav__item'><Link to='/SelectEventSells' className='nav__link'> Sells </Link></li>

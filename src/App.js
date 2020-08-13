@@ -10,7 +10,7 @@ import TopNavbar from './components/TopNavbar';
 import ViewEvent from './components/ViewEvent';
 import FormInput from './components/FormInput';
 import PopUp from './components/PopUp';
-import FormStepper from './components/FormStepper';
+import CreateTickets from './components/CreateTickets';
 import Graphs from './components/Graphs';
 import Sells from './components/Sells';
 import Revenue from './components/Revenue';
@@ -92,9 +92,9 @@ const GraphsPage = ()=>{
 		<Graphs />
 	)
 }
-const FormStepperPage = ()=>{
+const CreateTicketsPage = ()=>{
 	return(
-		<FormStepper />
+		<CreateTickets />
 	)
 }
 const CreateEventPage = ()=>{
@@ -143,7 +143,7 @@ class App extends React.Component{
 						<Route path='/ViewEvent' component = {ViewEventPage} />
 						<Route path='/FormInput' component = {FormInputPage} />
 						<Route path='/popUp' component= {PopUpPage} />
-						<Route path='/FormStepper' component= {FormStepperPage} />
+						<Route path='/CreateTickets' component= {CreateTicketsPage} />
 						<Route path='/Graphs' component= {GraphsPage} />
 						<Route path='/Sells' component= {SellsPage} />
 						<Route path='/Revenue' component= {RevenuePage} />
