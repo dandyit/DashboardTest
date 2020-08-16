@@ -1,0 +1,58 @@
+.home{
+    grid-row: 1/2;
+    grid-column: full-start / full-end;
+
+    // background-image: linear-gradient(to right bottom,rgba(#000, .5), rgba(#000, .5)), url(../../img/10.jpg);
+    background-image: linear-gradient(to right bottom,rgba(#000, .85), rgba(#000, .6)), url(../../img/landing.jpg);
+    background-size: cover;
+    background-position: center;
+    // padding-left: 8rem;
+    padding-top: 4rem;
+    
+    display: grid;
+    grid-template-rows: 1fr repeat(2,min-content) 8rem min-content 1fr;
+    grid-template-columns: max-content;
+    grid-row-gap: 1.5rem;
+    justify-content: center;
+    &__nav{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    &__signIn{
+        justify-self: end;
+        align-self: start;
+        color: #fff;
+    }
+
+    &__heading{
+        color: #4285f4;
+    }
+
+    &__logo {
+        height: 4rem;
+        justify-self: start;
+    }
+    &__input{
+        padding: 1.6rem 2rem;
+        width: 100%;
+        font-size: inherit;
+        font-family: inherit;
+        border:none;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+        transition: all .3s;
+        background-color: #fff;
+        outline: none;
+
+        &--box{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+    &__btn{
+        padding: 1.45rem 2rem;
+        border: 2px solid #fff;
+        border-radius: 0;
+    }
+
+}
