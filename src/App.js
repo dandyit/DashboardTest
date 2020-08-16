@@ -1,8 +1,21 @@
 import React from "react";
 import './App.scss';
-import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
+// import './index.scss';
+import './sass/landingPage/index.scss';
+import {BrowserRouter as Router, Route,Switch} from "react-router-dom"; 
+
 import {StateMachineProvider} from "little-state-machine";
 // import { DevTool } from 'little-state-machine-devtools';
+
+
+
+import Home from './components/landing/LandingHome';
+import {TurnoverPicture,  TurnoverContent} from './components/landing/LandingTurnover';
+import {SearchContent,  SearchPicture} from './components/landing/LandingSearch';
+import Help from './components/landing/LandingHelp';
+import Footer from './components/landing/LandingFooter';
+
+
 import Profile from  './components/Profile';
 import CreateEvent from './components/CreateEvent';
 import NavbarLeft from './components/NavbarLeft';
@@ -27,102 +40,140 @@ import Tickets from './components/Tickets';
 import NoMatch from './components/NoMatch';
 
 
-const TicketsPage = ()=>{
+
+const HomePage = ()=>{
 	return(
-		<Tickets />
+		<Home />
 	)
 }
-const MailerPage = ()=>{
+const SearchPicturePage = ()=>{
+	
 	return(
-		<Mailer />
+		<SearchPicture />
 	)
 }
-const DragCropImgPage = ()=>{
+const SearchContentPage = ()=>{
 	return(
-		<DragCropImg />
+		<SearchContent />
 	)
 }
-const SignUpPage = ()=>{
+const TurnoverPicturePage = ()=>{
 	return(
-		<SignUp />
+		<TurnoverPicture />
 	)
 }
-const LoginPage = ()=>{
+const TurnoverContentPage = ()=>{
 	return(
-		<Login />
+		<TurnoverContent />
 	)
 }
-const ForgotPasswordPage = ()=>{
+const HelpPage = ()=>{
 	return(
-		<ForgotPassword />
+		<Help />
 	)
 }
-const FetchDataPage = ()=>{
+const FooterPage = ()=>{
 	return(
-		<FetchData />
-	)
-}
-const CustomImgCropPage = ()=>{
-	return(
-		<CustomImgCrop />
-	)
-}
-const SelectEventSellsPage = ()=>{
-	return(
-		<SelectEventSells />
-	)
-}
-const SelectEventRevenuePage = ()=>{
-	return(
-		<SelectEventRevenue />
-	)
-}
-const RevenuePage = ()=>{
-	return(
-		<Revenue />
-	)
-}
-const SellsPage = ()=>{
-	return(
-		<Sells />
-	)
-}
-const GraphsPage = ()=>{
-	return(
-		<Graphs />
-	)
-}
-const CreateTicketsPage = ()=>{
-	return(
-		<CreateTickets />
-	)
-}
-const CreateEventPage = ()=>{
-	return(
-		<CreateEvent />
-	)
-}
-const ViewEventPage = ()=>{
-	return(
-        <ViewEvent />
-	);
-}
-const FormInputPage = ()=>{
-	return(
-		<FormInput />
+		<Footer />
 	)
 }
 
-const PopUpPage = ()=>{
-	return(
-		<PopUp />
-	)
-}
-const ProfilePage = ()=>{
-	return(
-		<Profile />
-	)
-}
+// const TicketsPage = ()=>{
+// 	return(
+// 		<Tickets />
+// 	)
+// }
+// const MailerPage = ()=>{
+// 	return(
+// 		<Mailer />
+// 	)
+// }
+// const DragCropImgPage = ()=>{
+// 	return(
+// 		<DragCropImg />
+// 	)
+// }
+// const SignUpPage = ()=>{
+// 	return(
+// 		<SignUp />
+// 	)
+// }
+// const LoginPage = ()=>{
+// 	return(
+// 		<Login />
+// 	)
+// }
+// const ForgotPasswordPage = ()=>{
+// 	return(
+// 		<ForgotPassword />
+// 	)
+// }
+// const FetchDataPage = ()=>{
+// 	return(
+// 		<FetchData />
+// 	)
+// }
+// const CustomImgCropPage = ()=>{
+// 	return(
+// 		<CustomImgCrop />
+// 	)
+// }
+// const SelectEventSellsPage = ()=>{
+// 	return(
+// 		<SelectEventSells />
+// 	)
+// }
+// const SelectEventRevenuePage = ()=>{
+// 	return(
+// 		<SelectEventRevenue />
+// 	)
+// }
+// const RevenuePage = ()=>{
+// 	return(
+// 		<Revenue />
+// 	)
+// }
+// const SellsPage = ()=>{
+// 	return(
+// 		<Sells />
+// 	)
+// }
+// const GraphsPage = ()=>{
+// 	return(
+// 		<Graphs />
+// 	)
+// }
+// const CreateTicketsPage = ()=>{
+// 	return(
+// 		<CreateTickets />
+// 	)
+// }
+// const CreateEventPage = ()=>{
+// 	return(
+// 		<CreateEvent />
+// 	)
+// }
+// const ViewEventPage = ()=>{
+// 	return(
+//         <ViewEvent />
+// 	);
+// }
+// const FormInputPage = ()=>{
+// 	return(
+// 		<FormInput />
+// 	)
+// }
+
+// const PopUpPage = ()=>{
+// 	return(
+// 		<PopUp />
+// 	)
+// }
+// const ProfilePage = ()=>{
+// 	return(
+// 		<Profile />
+// 	)
+// }
 
 
 class App extends React.Component{
@@ -132,10 +183,20 @@ class App extends React.Component{
 		<StateMachineProvider>
 			< Router >
 				<div className = 'App'>
-					<div  className='container'>
+					<div className='landingLayout'>
+						<Route exact path='/' component = {HomePage} />
+						
+						<Route path='/' component = {TurnoverContentPage} />
+						<Route path='/' component = {TurnoverPicturePage} />
+						<Route path='/' component = {SearchContentPage} />
+						<Route path='/' component = {SearchPicturePage} />
+						<Route path='/' component = {HelpPage} />
+						<Route path='/' component = {FooterPage} />
+					</div>
+					
+					{/* <div  className='container'>
 						<NavbarLeft />
 						<TopNavbar />
-						{/* <DevTool /> */}
 						<Switch>
 						<Route exact path='/' component = {ProfilePage} />
 						<Route path='/Profile' component = {ProfilePage} />
@@ -159,7 +220,7 @@ class App extends React.Component{
 						<Route path='/Tickets' component= {TicketsPage} />
 						<Route component= {NoMatch} />
 						</Switch>
-					</div>
+					</div> */}
 				</div>
 				
 			</ Router >

@@ -41,6 +41,15 @@ const NavbarLeft = ()=>{
                     <li className='nav__item'><Link to='/Tickets' className='nav__link'> Tickets </Link></li>
                 
                 </ul>
+
+            </div>
+            <div className='sidebar__footer'>
+                <span className='sidebar__footer__copyright'>
+                    &copy; all copy right reserved by
+                    <p className='text-upper'>
+                        D&Y T SOLUTIONS LLP
+                    </p>
+                </span>
             </div>
         </div>
     )
