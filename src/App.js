@@ -1,6 +1,6 @@
 import React from "react";
 import './App.scss';
-// import './index.scss';
+import './index.scss';
 import './sass/landingPage/index.scss';
 import {BrowserRouter as Router, Route,Switch} from "react-router-dom"; 
 
@@ -78,102 +78,102 @@ const FooterPage = ()=>{
 	)
 }
 
-// const TicketsPage = ()=>{
-// 	return(
-// 		<Tickets />
-// 	)
-// }
-// const MailerPage = ()=>{
-// 	return(
-// 		<Mailer />
-// 	)
-// }
-// const DragCropImgPage = ()=>{
-// 	return(
-// 		<DragCropImg />
-// 	)
-// }
-// const SignUpPage = ()=>{
-// 	return(
-// 		<SignUp />
-// 	)
-// }
-// const LoginPage = ()=>{
-// 	return(
-// 		<Login />
-// 	)
-// }
-// const ForgotPasswordPage = ()=>{
-// 	return(
-// 		<ForgotPassword />
-// 	)
-// }
-// const FetchDataPage = ()=>{
-// 	return(
-// 		<FetchData />
-// 	)
-// }
-// const CustomImgCropPage = ()=>{
-// 	return(
-// 		<CustomImgCrop />
-// 	)
-// }
-// const SelectEventSellsPage = ()=>{
-// 	return(
-// 		<SelectEventSells />
-// 	)
-// }
-// const SelectEventRevenuePage = ()=>{
-// 	return(
-// 		<SelectEventRevenue />
-// 	)
-// }
-// const RevenuePage = ()=>{
-// 	return(
-// 		<Revenue />
-// 	)
-// }
-// const SellsPage = ()=>{
-// 	return(
-// 		<Sells />
-// 	)
-// }
-// const GraphsPage = ()=>{
-// 	return(
-// 		<Graphs />
-// 	)
-// }
-// const CreateTicketsPage = ()=>{
-// 	return(
-// 		<CreateTickets />
-// 	)
-// }
-// const CreateEventPage = ()=>{
-// 	return(
-// 		<CreateEvent />
-// 	)
-// }
-// const ViewEventPage = ()=>{
-// 	return(
-//         <ViewEvent />
-// 	);
-// }
-// const FormInputPage = ()=>{
-// 	return(
-// 		<FormInput />
-// 	)
-// }
+const TicketsPage = ()=>{
+	return(
+		<Tickets />
+	)
+}
+const MailerPage = ()=>{
+	return(
+		<Mailer />
+	)
+}
+const DragCropImgPage = ()=>{
+	return(
+		<DragCropImg />
+	)
+}
+const SignUpPage = ()=>{
+	return(
+		<SignUp />
+	)
+}
+const LoginPage = ()=>{
+	return(
+		<Login />
+	)
+}
+const ForgotPasswordPage = ()=>{
+	return(
+		<ForgotPassword />
+	)
+}
+const FetchDataPage = ()=>{
+	return(
+		<FetchData />
+	)
+}
+const CustomImgCropPage = ()=>{
+	return(
+		<CustomImgCrop />
+	)
+}
+const SelectEventSellsPage = ()=>{
+	return(
+		<SelectEventSells />
+	)
+}
+const SelectEventRevenuePage = ()=>{
+	return(
+		<SelectEventRevenue />
+	)
+}
+const RevenuePage = ()=>{
+	return(
+		<Revenue />
+	)
+}
+const SellsPage = ()=>{
+	return(
+		<Sells />
+	)
+}
+const GraphsPage = ()=>{
+	return(
+		<Graphs />
+	)
+}
+const CreateTicketsPage = ()=>{
+	return(
+		<CreateTickets />
+	)
+}
+const CreateEventPage = ()=>{
+	return(
+		<CreateEvent />
+	)
+}
+const ViewEventPage = ()=>{
+	return(
+        <ViewEvent />
+	);
+}
+const FormInputPage = ()=>{
+	return(
+		<FormInput />
+	)
+}
 
-// const PopUpPage = ()=>{
-// 	return(
-// 		<PopUp />
-// 	)
-// }
-// const ProfilePage = ()=>{
-// 	return(
-// 		<Profile />
-// 	)
-// }
+const PopUpPage = ()=>{
+	return(
+		<PopUp />
+	)
+}
+const ProfilePage = ()=>{
+	return(
+		<Profile />
+	)
+}
 
 
 class App extends React.Component{
@@ -184,7 +184,7 @@ class App extends React.Component{
 			< Router >
 				<div className = 'App'>
 					<div className='landingLayout'>
-						<Route exact path='/' component = {HomePage} />
+						<Route path='/' component = {HomePage} />
 						
 						<Route path='/' component = {TurnoverContentPage} />
 						<Route path='/' component = {TurnoverPicturePage} />
@@ -194,7 +194,7 @@ class App extends React.Component{
 						<Route path='/' component = {FooterPage} />
 					</div>
 					
-					{/* <div  className='container'>
+					<div  className='container'>
 						<NavbarLeft />
 						<TopNavbar />
 						<Switch>
@@ -220,7 +220,7 @@ class App extends React.Component{
 						<Route path='/Tickets' component= {TicketsPage} />
 						<Route component= {NoMatch} />
 						</Switch>
-					</div> */}
+					</div>
 				</div>
 				
 			</ Router >
