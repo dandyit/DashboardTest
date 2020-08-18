@@ -16,7 +16,7 @@ const TurnoverPicture = ()=>{
     return(
         <div className='turnover__picture'>
                 {/* <img className='turnover__picture--img' src={imgld} /> */}
-                <video class="our-story-card-video" autoplay="" playsinline="" muted="" loop="">
+                <video class="our-story-card-video" autoplay="" playsinline="" muted="" loop="5">
                     <source src={demoVideo} type="video/mp4"></source>
                 </video>
         </div>

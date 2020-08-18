@@ -1,3 +1,14 @@
+// @import '../abstracts/variables';
+// @import '../base';
+// @import '../typography/typography';
+// @import '../abstracts/mixins';
+// @import '../base/utilities';
+// @import '../components/button';
+// @import '../components/boxContainer';
+// @import '../components/alert';
+
+@import '../rootScss/root.scss';
+
 @import './landingLayout';
 
 @import './landingHome';
