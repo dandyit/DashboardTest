@@ -10,7 +10,7 @@ const LandingHome = ()=>{
                 <a href='#!' className='home__signIn'>Sign In</a>
             </div>
 
-                <h3 className='heading-3-sub para--light'>Create your own event & tickets</h3>
+                <h3 className='heading-3-sub para--light'>Free Create your own event & tickets</h3>
                 <h2 className='heading-2 para--light-4 text-cap'>
                     To sell unlimited tickets and
                 </h2>
