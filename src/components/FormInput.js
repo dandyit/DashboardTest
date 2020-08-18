@@ -121,11 +121,11 @@ const [form, setState] = useState({
     // let apiData = {email: "rahul.tiwari@mapsor.com", password: "pass1234"};
     // let apiData = {email: user.email, password: user.password};
 
-    const { data } = await axios.post(`${apiUrl}/api/v1/users/login`, apiData);
+const { data } = await axios.post(`${apiUrl}/api/v1/users/login`, apiData);
     console.log(data);
     localStorage.setItem('token', data.token);
     setJwt(data.token);
-  };
+};
 
 const me = async () => {
     try {

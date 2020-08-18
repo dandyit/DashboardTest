@@ -1,8 +1,21 @@
 import React from "react";
 import './App.scss';
-import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
+import './index.scss';
+import './sass/landingPage/index.scss';
+import {BrowserRouter as Router, Route,Switch} from "react-router-dom"; 
+
 import {StateMachineProvider} from "little-state-machine";
 // import { DevTool } from 'little-state-machine-devtools';
+
+
+
+import Home from './components/landing/LandingHome';
+import {TurnoverPicture,  TurnoverContent} from './components/landing/LandingTurnover';
+import {SearchContent,  SearchPicture} from './components/landing/LandingSearch';
+import Help from './components/landing/LandingHelp';
+import Footer from './components/landing/LandingFooter';
+
+
 import Profile from  './components/Profile';
 import CreateEvent from './components/CreateEvent';
 import NavbarLeft from './components/NavbarLeft';
@@ -10,10 +23,12 @@ import TopNavbar from './components/TopNavbar';
 import ViewEvent from './components/ViewEvent';
 import FormInput from './components/FormInput';
 import PopUp from './components/PopUp';
-import FormStepper from './components/FormStepper';
+import CreateTickets from './components/CreateTickets';
 import Graphs from './components/Graphs';
 import Sells from './components/Sells';
 import Revenue from './components/Revenue';
+import SelectEventRevenue from './components/SelectEventRevenue';
+import SelectEventSells from './components/SelectEventSells';
 import CustomImgCrop from './components/CustomImgCrop';
 import FetchData from './components/FetchData';
 import Login from './components/Login';
@@ -24,6 +39,44 @@ import Mailer from './components/emailSender/Mailer';
 import Tickets from './components/Tickets';
 import NoMatch from './components/NoMatch';
 
+
+
+const HomePage = ()=>{
+	return(
+		<Home />
+	)
+}
+const SearchPicturePage = ()=>{
+	
+	return(
+		<SearchPicture />
+	)
+}
+const SearchContentPage = ()=>{
+	return(
+		<SearchContent />
+	)
+}
+const TurnoverPicturePage = ()=>{
+	return(
+		<TurnoverPicture />
+	)
+}
+const TurnoverContentPage = ()=>{
+	return(
+		<TurnoverContent />
+	)
+}
+const HelpPage = ()=>{
+	return(
+		<Help />
+	)
+}
+const FooterPage = ()=>{
+	return(
+		<Footer />
+	)
+}
 
 const TicketsPage = ()=>{
 	return(
@@ -65,6 +118,16 @@ const CustomImgCropPage = ()=>{
 		<CustomImgCrop />
 	)
 }
+const SelectEventSellsPage = ()=>{
+	return(
+		<SelectEventSells />
+	)
+}
+const SelectEventRevenuePage = ()=>{
+	return(
+		<SelectEventRevenue />
+	)
+}
 const RevenuePage = ()=>{
 	return(
 		<Revenue />
@@ -80,9 +143,9 @@ const GraphsPage = ()=>{
 		<Graphs />
 	)
 }
-const FormStepperPage = ()=>{
+const CreateTicketsPage = ()=>{
 	return(
-		<FormStepper />
+		<CreateTickets />
 	)
 }
 const CreateEventPage = ()=>{
@@ -120,10 +183,20 @@ class App extends React.Component{
 		<StateMachineProvider>
 			< Router >
 				<div className = 'App'>
+					<div className='landingLayout'>
+						<Route path='/' component = {HomePage} />
+						
+						<Route path='/' component = {TurnoverContentPage} />
+						<Route path='/' component = {TurnoverPicturePage} />
+						<Route path='/' component = {SearchContentPage} />
+						<Route path='/' component = {SearchPicturePage} />
+						<Route path='/' component = {HelpPage} />
+						<Route path='/' component = {FooterPage} />
+					</div>
+					
 					<div  className='container'>
 						<NavbarLeft />
 						<TopNavbar />
-						{/* <DevTool /> */}
 						<Switch>
 						<Route exact path='/' component = {ProfilePage} />
 						<Route path='/Profile' component = {ProfilePage} />
@@ -131,10 +204,12 @@ class App extends React.Component{
 						<Route path='/ViewEvent' component = {ViewEventPage} />
 						<Route path='/FormInput' component = {FormInputPage} />
 						<Route path='/popUp' component= {PopUpPage} />
-						<Route path='/FormStepper' component= {FormStepperPage} />
+						<Route path='/CreateTickets' component= {CreateTicketsPage} />
 						<Route path='/Graphs' component= {GraphsPage} />
 						<Route path='/Sells' component= {SellsPage} />
 						<Route path='/Revenue' component= {RevenuePage} />
+						<Route path='/SelectEventRevenue' component= {SelectEventRevenuePage} />
+						<Route path='/SelectEventSells' component= {SelectEventSellsPage} />
 						<Route path='/CustomImgCropPage' component= {CustomImgCropPage} />
 						<Route path='/FetchData' component= {FetchDataPage} />
 						<Route path='/Login' component= {LoginPage} />

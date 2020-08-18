@@ -1,0 +1,31 @@
+.turnover{
+    
+    &__content{
+        grid-row: 2/3;
+        grid-column: center-start / col-end 4;
+
+        display: grid;
+        // justify-content: center;
+
+        h1{
+            display: grid;
+            justify-content: start;
+            align-self: end;
+        }
+    }
+    &__picture{
+        grid-row: 2/3;
+        grid-column: col-start 6 / center-end;
+
+        display: grid;
+        align-items: center;
+
+        &--img{
+            width: 100%;
+            // grid-row: 1 / 8;
+            // grid-column: 2 / 6;
+            box-shadow: 0 2rem 5rem rgba(#000, .1);
+            border-radius: 3px;
+        }
+    }
+}

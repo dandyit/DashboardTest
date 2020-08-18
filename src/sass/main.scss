@@ -1,10 +1,11 @@
 @import './abstracts/variables';
 @import './base';
-@import './typography';
+@import './typography/typography';
 @import './abstracts/mixins';
 @import './base/utilities';
 @import './components/button';
 @import './components/boxContainer';
+@import './components/alert';
 
 @import './navbarLeft';
 @import './topNavbar';
@@ -18,7 +19,7 @@
 @import './sells';
 @import './revenues';
 @import './customImgCrop';
-@import './formStepper';
+@import './createTickets';
 @import './login';
 @import './signUp';
 @import './forgotPassword';

@@ -3,8 +3,9 @@
     font-family: $font-display;
 }
 .heading-1{
-    @extend %heading;
-    font-size: 8rem;
+    font-family: $font-display;
+    font-weight: 500;
+    font-size: 4rem;
 }
 .heading-2{
     @extend %heading;
@@ -21,6 +22,11 @@
         color: $color-secondary-light-3;
     }
     
+}
+.heading-3-sub{
+    font-weight: 400;
+    font-size: $font-16;
+    text-transform: uppercase;;
 }
 .heading-3{
     @extend %heading;
@@ -131,6 +137,15 @@
    
     &--light{
         color: $color-primary;
+    }
+    &--light-2{
+        color: $color-primary-1;
+    }
+    &--light-3{
+        color: $color-primary-dark-1;
+    }
+    &--light-4{
+        color: $color-primary-dark-3;
     }
     &--dark{
         color: $color-secondary-light-2;

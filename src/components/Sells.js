@@ -19,7 +19,7 @@ const Sells = ()=>{
                 </p>
                 <h3 className='heading-3 heading-3--dark'> 
                     WWM Event Tickets
-                    <div style={{float:'right'}}>
+                    {/* <div style={{float:'right'}}>
                         <span className='para para--size-14 para--dark u-margin-right-small'>Filter</span>
                         <select class="form__select para--dark-2">
                             <option className='para--dark-2'> Time </option>
@@ -28,7 +28,7 @@ const Sells = ()=>{
                             <option>month</option>
                             <option>year</option>
                         </select>
-                    </div>
+                    </div> */}
                 </h3>
             </div>
             <div className='charts'>

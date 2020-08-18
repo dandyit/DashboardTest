@@ -7,7 +7,7 @@
     top: 0px;
 
 	display: grid;
-    grid-template-rows: repeat(2, min-content);
+    grid-template-rows: repeat(2, min-content) 1fr;
     // grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 	// grid-gap: 1.5rem;
 	
@@ -32,6 +32,17 @@
 			margin-top: -4.4rem;
 			margin-left: -3rem;
 			width: 15rem;
+		}
+	}
+	&__footer{
+		text-align: center;
+		margin-top: 12rem;
+
+		&__copyright{
+			line-height: .01px;
+			letter-spacing: .01px;
+			font-size: .9rem;
+			font-weight: 700;
 		}
 	}
 }
