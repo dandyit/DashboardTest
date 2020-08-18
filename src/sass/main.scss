@@ -1,11 +1,14 @@
-@import './abstracts/variables';
-@import './base';
-@import './typography/typography';
-@import './abstracts/mixins';
-@import './base/utilities';
+// @import './abstracts/variables';
+// @import './base';
+// @import './typography/typography';
+// @import './abstracts/mixins';
+// @import './base/utilities';
+@import './rootScss/root.scss';
+
 @import './components/button';
 @import './components/boxContainer';
 @import './components/alert';
+
 
 @import './navbarLeft';
 @import './topNavbar';

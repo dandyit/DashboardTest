@@ -1,6 +1,12 @@
 .noMatch{
-    grid-row: 2 / 3;
-    grid-column: full-start / full-end;
+    grid-row: 1 / 2;
+    grid-column: sidebar-start / full-end;
 
-    @include absCenter;
+    z-index: 5100;
+    height: 100vh;
+    text-align: center;
+
+    &--box{
+        @include absCenter;
+    }
 }
