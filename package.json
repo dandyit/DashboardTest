@@ -28,7 +28,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-slider-swiper": "^2.0.6",
-    "swiper": "^5.4.0",
+    "swiper": "^6.5.1",
     "yup": "^0.29.2"
   },
   "scripts": {
